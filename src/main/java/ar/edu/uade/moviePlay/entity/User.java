@@ -36,4 +36,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
     private List<Movie> favoriteMovies;
+    @OneToOne
+    private RefreshToken refreshToken;
 }
