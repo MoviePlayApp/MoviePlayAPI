@@ -1,0 +1,18 @@
+# Default properties file
+spring:
+  jpa:
+    open-in-view: false
+  profiles:
+    active: ${SCOPE} # Comma-separated list of active profiles. Can be overridden by a command line switch.
+  web:
+    resources:
+      add-mappings: false
+
+server:
+  compression:
+    enabled: true # Whether response compression is enabled.
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json # Comma-separated list of MIME types that should be compressed.
+    min-response-size: 1024 # Minimum "Content-Length" value that is required for compression to be performed.
+  port: 8081
+  google:
+    client-id: 833942742508-83mun3a1ksvie37qgl7hdrmmsm3moeho.apps.googleusercontent.com
