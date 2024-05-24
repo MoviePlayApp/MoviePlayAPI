@@ -20,3 +20,7 @@ spring:
       password: admin
 google:
   client-id: 724452454631-jvu3g96eoqa2hpn68irogbk1er7lplfq.apps.googleusercontent.com
+
+tmdb:
+  api:
+    key: 401cdbb25f2bf2ecbb11192e86d3e57e
