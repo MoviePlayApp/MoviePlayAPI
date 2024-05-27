@@ -837,6 +837,12 @@
             "type": "string"
           },
           "genre": {
+              "type": "string"
+          },
+          "director": {
+            "type": "string"
+          },
+          "actors": {
             "type": "array",
             "items": {
               "type": "string"

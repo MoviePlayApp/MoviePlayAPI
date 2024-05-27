@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:movieplay
+    username: admin
+    password: admin
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  security:
+    user:
+      name: admin
+      password: admin
+google:
+  client-id: 724452454631-jvu3g96eoqa2hpn68irogbk1er7lplfq.apps.googleusercontent.com
+secret:
+  jwt:
+    key: fe79beae5c937b4b6bd0305a7e0f6a5dec625d0337b5a99b9369d2f5f7e0b1a3f54d1ba5f2677c3ad09f644361cdb68d6ed419df36bcca12ccac4eb23326664c
