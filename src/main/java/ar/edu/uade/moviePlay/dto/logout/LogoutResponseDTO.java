@@ -1,4 +1,4 @@
-package ar.edu.uade.moviePlay.dto.token;
+package ar.edu.uade.moviePlay.dto.logout;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RefreshTokenResponseDTO {
+public class LogoutResponseDTO {
+    private String email;
     private String status;
-    private String token;
-    private String refreshToken;
 }

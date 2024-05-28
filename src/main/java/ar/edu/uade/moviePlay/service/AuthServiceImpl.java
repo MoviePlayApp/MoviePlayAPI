@@ -3,11 +3,20 @@ package ar.edu.uade.moviePlay.service;
 import ar.edu.uade.moviePlay.dto.login.GoogleValidationResponseDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginRequestDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginResponseDTO;
+import ar.edu.uade.moviePlay.dto.logout.LogoutRequestDTO;
+import ar.edu.uade.moviePlay.dto.logout.LogoutResponseDTO;
+import ar.edu.uade.moviePlay.dto.token.RefreshTokenRequestDTO;
+import ar.edu.uade.moviePlay.dto.token.RefreshTokenResponseDTO;
 import ar.edu.uade.moviePlay.entity.RefreshToken;
 import ar.edu.uade.moviePlay.entity.User;
+import ar.edu.uade.moviePlay.exception.ApiError;
 import ar.edu.uade.moviePlay.exception.InvalidTokenException;
+import ar.edu.uade.moviePlay.exception.NotFoundException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
+import com.google.api.client.http.HttpStatusCodes;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
@@ -20,17 +29,22 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import io.jsonwebtoken.Jwts;
+import org.springframework.util.StringUtils;
 
 @Service
 public class AuthServiceImpl implements IAuthService{
+    private final InMemoryTokenBlacklist inMemoryTokenBlacklist;
     IUserRepository userRepository;
     GoogleAuthService googleAuthService;
     IRefreshTokenService refreshTokenService;
+    @Value("${secret.jwt.key}")
+    private String SECRET_JWT_KEY;
 
-    public AuthServiceImpl(IUserRepository userRepository , GoogleAuthService googleAuthService, RefreshTokenService refreshTokenService) {
+    public AuthServiceImpl(IUserRepository userRepository , GoogleAuthService googleAuthService, RefreshTokenService refreshTokenService, InMemoryTokenBlacklist inMemoryTokenBlacklist) {
         this.userRepository = userRepository;
         this.googleAuthService = googleAuthService;
         this.refreshTokenService = refreshTokenService;
+        this.inMemoryTokenBlacklist = inMemoryTokenBlacklist;
     }
 
     @Override
@@ -39,14 +53,33 @@ public class AuthServiceImpl implements IAuthService{
         if (googleValidationResponse == null) {
             throw new InvalidTokenException("Google Token could not be validated");
         }
-        User user = saveNewUser(googleValidationResponse);
+        User user = handleGoogleValidationReponse(googleValidationResponse);
 
         String token = this.getJWTToken(googleValidationResponse.getEmail());
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
         return new LoginResponseDTO(user.getId(), user.getName(), user.getNickName(), user.getEmail(), user.getProfilePictureUri(), token, refreshToken.getToken());
     }
 
-    private User saveNewUser(GoogleValidationResponseDTO googleValidationResponse){
+    @Override
+    public LogoutResponseDTO logout(String token, LogoutRequestDTO logoutRequestDTO) {
+        if (!StringUtils.hasText(token) || !token.startsWith("Bearer ")) {
+            throw new InvalidTokenException("Invalid token");
+        }
+        inMemoryTokenBlacklist.addToBlacklist(token.substring(7));
+        return new LogoutResponseDTO(logoutRequestDTO.getEmail(), "Logout successful");
+    }
+
+    @Override
+    public RefreshTokenResponseDTO refreshToken(RefreshTokenRequestDTO refreshTokenRequestDTO) {
+        Optional<RefreshToken> refreshToken = refreshTokenService.findByToken(refreshTokenRequestDTO.getRefreshToken());
+        if (refreshToken.isEmpty()) {
+            throw new NotFoundException("User or refresh token is not valid.");
+        }
+        String token = this.getJWTToken(refreshToken.get().getUser().getEmail());
+        return new RefreshTokenResponseDTO("Success",token, refreshTokenRequestDTO.getRefreshToken());
+    }
+
+    private User handleGoogleValidationReponse(GoogleValidationResponseDTO googleValidationResponse){
         Optional<User> user = userRepository.findByEmail(googleValidationResponse.getEmail());
         if (user.isPresent()){
             return user.get();
@@ -62,7 +95,6 @@ public class AuthServiceImpl implements IAuthService{
     }
 
     private String getJWTToken(String username) {
-        String secretKey = "9a4f2c8d3b7a1e6f45c8a0b3f267d8b1d4e6f3c8a9d2b5f8e3a9c8b5f6v8a3d9";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList("ROLE_USER");
 
@@ -76,7 +108,7 @@ public class AuthServiceImpl implements IAuthService{
                                 .collect(Collectors.toList()))
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 600000))
-                .signWith(Keys.hmacShaKeyFor(secretKey.getBytes()))
+                .signWith(Keys.hmacShaKeyFor(SECRET_JWT_KEY.getBytes()))
                 .compact();
     }
 }
