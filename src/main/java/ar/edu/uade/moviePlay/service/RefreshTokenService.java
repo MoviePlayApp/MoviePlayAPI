@@ -50,4 +50,8 @@ public class RefreshTokenService implements IRefreshTokenService{
         }
         return token;
     }
+
+    public void revokeRefreshToken(Integer tokenId){
+        refreshTokenRepository.deleteById(tokenId);
+    }
 }

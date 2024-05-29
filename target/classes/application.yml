@@ -7,12 +7,25 @@ spring:
   web:
     resources:
       add-mappings: false
-
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:movieplay
+    username: admin
+    password: admin
+    driverClassName: org.h2.Driver
 server:
   compression:
     enabled: true # Whether response compression is enabled.
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json # Comma-separated list of MIME types that should be compressed.
     min-response-size: 1024 # Minimum "Content-Length" value that is required for compression to be performed.
   port: 8081
-  google:
-    client-id: 833942742508-83mun3a1ksvie37qgl7hdrmmsm3moeho.apps.googleusercontent.com
+google:
+  client-id: 724452454631-jvu3g96eoqa2hpn68irogbk1er7lplfq.apps.googleusercontent.com
+secret:
+  jwt:
+    key: fe79beae5c937b4b6bd0305a7e0f6a5dec625d0337b5a99b9369d2f5f7e0b1a3f54d1ba5f2677c3ad09f644361cdb68d6ed419df36bcca12ccac4eb23326664c

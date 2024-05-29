@@ -9,4 +9,5 @@ public interface IRefreshTokenService {
     RefreshToken createRefreshToken(User user);
     Optional<RefreshToken> findByToken(String token);
     RefreshToken verifyExpiration(RefreshToken token);
+    void revokeRefreshToken(Integer token);
 }
