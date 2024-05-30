@@ -1,0 +1,2 @@
+buildCommand: mvn clean install
+startCommand: java -jar moviePlay-0.0.1-SNAPSHOT.jar

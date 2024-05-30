@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ar.edu.uade.moviePlay.MovieTests.TestApiMovies
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.416 s -- in ar.edu.uade.moviePlay.MovieTests.TestApiMovies
