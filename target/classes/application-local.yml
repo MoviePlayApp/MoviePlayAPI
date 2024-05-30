@@ -24,6 +24,7 @@ secret:
   jwt:
     key: fe79beae5c937b4b6bd0305a7e0f6a5dec625d0337b5a99b9369d2f5f7e0b1a3f54d1ba5f2677c3ad09f644361cdb68d6ed419df36bcca12ccac4eb23326664c
 
-tmdb:
+themoviedb:
   api:
-    key: 401cdbb25f2bf2ecbb11192e86d3e57e
+    url: https://api.themoviedb.org/3
+    token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDFjZGJiMjVmMmJmMmVjYmIxMTE5MmU4NmQzZTU3ZSIsInN1YiI6IjY2NTAwMTRiNGEyNTM0Njg4ZDU0NTA2ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n6ZXymRPbEPwKa7aJ2gD507RsW54LEt63yrpbl6MnRY

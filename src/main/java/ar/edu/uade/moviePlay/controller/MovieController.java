@@ -1,6 +1,6 @@
 package ar.edu.uade.moviePlay.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import ar.edu.uade.moviePlay.service.MovieServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +11,11 @@ import ar.edu.uade.moviePlay.service.MovieService;
 @RestController
 public class MovieController {
 
-    @Autowired
-    private MovieService movieService;
+    private final MovieService movieService;
+
+    private MovieController(MovieServiceImpl movieService){
+        this.movieService = movieService;
+    }
 
     @GetMapping("/movies")
     public GetMovieDTO getMovies(
