@@ -33,10 +33,11 @@ public class SecurityConfiguration {
                         .disable())
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("session/auth").permitAll()
-                        .requestMatchers("/ping").permitAll()
+                        .requestMatchers("ping").permitAll()
                         .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("session/auth/refreshToken").permitAll()
                         .requestMatchers("session/logout").authenticated()
+                        .requestMatchers("users/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
