@@ -1,5 +1,6 @@
 package ar.edu.uade.moviePlay.service;
 
+import ar.edu.uade.moviePlay.config.JwtService;
 import ar.edu.uade.moviePlay.dto.login.GoogleValidationResponseDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginRequestDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginResponseDTO;
@@ -14,6 +15,7 @@ import ar.edu.uade.moviePlay.exception.InvalidTokenException;
 import ar.edu.uade.moviePlay.exception.NotFoundException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
 import com.google.api.client.http.HttpStatusCodes;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
