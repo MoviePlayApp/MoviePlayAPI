@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class MovieDTO {
     private int id;
     private String backdrop_path;
+    private String title;
 }

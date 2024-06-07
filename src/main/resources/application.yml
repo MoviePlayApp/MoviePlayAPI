@@ -34,3 +34,4 @@ themoviedb:
   api:
     url: https://api.themoviedb.org/3
     token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDFjZGJiMjVmMmJmMmVjYmIxMTE5MmU4NmQzZTU3ZSIsInN1YiI6IjY2NTAwMTRiNGEyNTM0Njg4ZDU0NTA2ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n6ZXymRPbEPwKa7aJ2gD507RsW54LEt63yrpbl6MnRY
+    imageBaseUrl: https://image.tmdb.org/t/p/

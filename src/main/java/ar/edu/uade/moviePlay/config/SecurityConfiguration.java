@@ -38,6 +38,7 @@ public class SecurityConfiguration {
                         .requestMatchers("session/auth/refreshToken").permitAll()
                         .requestMatchers("session/logout").authenticated()
                         .requestMatchers("users/**").permitAll()
+                        .requestMatchers("movies/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

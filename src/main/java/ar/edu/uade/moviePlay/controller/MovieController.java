@@ -13,7 +13,7 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    private MovieController(MovieServiceImpl movieService){
+    public MovieController(MovieServiceImpl movieService){
         this.movieService = movieService;
     }
 
