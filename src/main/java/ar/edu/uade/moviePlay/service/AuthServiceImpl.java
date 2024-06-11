@@ -1,6 +1,5 @@
 package ar.edu.uade.moviePlay.service;
 
-import ar.edu.uade.moviePlay.config.JwtService;
 import ar.edu.uade.moviePlay.dto.login.GoogleValidationResponseDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginRequestDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginResponseDTO;
@@ -10,15 +9,11 @@ import ar.edu.uade.moviePlay.dto.token.RefreshTokenRequestDTO;
 import ar.edu.uade.moviePlay.dto.token.RefreshTokenResponseDTO;
 import ar.edu.uade.moviePlay.entity.RefreshToken;
 import ar.edu.uade.moviePlay.entity.User;
-import ar.edu.uade.moviePlay.exception.ApiError;
 import ar.edu.uade.moviePlay.exception.InvalidTokenException;
 import ar.edu.uade.moviePlay.exception.NotFoundException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
-import com.google.api.client.http.HttpStatusCodes;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
@@ -31,6 +26,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import io.jsonwebtoken.Jwts;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 @Service
@@ -50,6 +46,7 @@ public class AuthServiceImpl implements IAuthService{
     }
 
     @Override
+    @Transactional
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) throws GeneralSecurityException, IOException {
         GoogleValidationResponseDTO googleValidationResponse = googleAuthService.verifyToken(loginRequestDTO.getGoogleIdToken());
         if (googleValidationResponse == null) {
@@ -81,7 +78,8 @@ public class AuthServiceImpl implements IAuthService{
         return new RefreshTokenResponseDTO("Success",token, refreshTokenRequestDTO.getRefreshToken());
     }
 
-    private User handleGoogleValidationReponse(GoogleValidationResponseDTO googleValidationResponse){
+    @Transactional
+    public User handleGoogleValidationReponse(GoogleValidationResponseDTO googleValidationResponse){
         Optional<User> user = userRepository.findByEmail(googleValidationResponse.getEmail());
         if (user.isPresent()){
             return user.get();
