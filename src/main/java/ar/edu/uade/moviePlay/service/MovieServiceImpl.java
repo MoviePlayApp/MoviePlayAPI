@@ -31,19 +31,36 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public GetMovieDTO getMovies(int page, int limit, String search, String orderByDate, String orderByRate, String genre) {
         String currentDate = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
-        Mono<GetMovieDTO> response = webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/discover/movie")
-                        .queryParam("language", "en-US")
-                        .queryParam("release_date.lte", currentDate)
-                        .queryParam("page", page)
-                        .queryParam("sort_by", orderByDate)
-                        .queryParam("sort_by", orderByRate)
-                        .queryParam("with_genres", genre)
-                        .build())
-                .header("Authorization", "Bearer " + apiToken)
-                .retrieve()
-                .bodyToMono(GetMovieDTO.class);
+
+        Mono<GetMovieDTO> response;
+
+        if (search.isEmpty()) {
+            response = webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/discover/movie")
+                            .queryParam("include_adult", "false")
+                            .queryParam("release_date.lte", currentDate)
+                            .queryParam("page", page)
+                            .queryParam("sort_by", orderByDate)
+                            .queryParam("sort_by", orderByRate)
+                            .queryParam("with_genres", genre)
+                            .build())
+                    .header("Authorization", "Bearer " + apiToken)
+                    .retrieve()
+                    .bodyToMono(GetMovieDTO.class);
+        } else {
+            response = webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/search/multi")
+                            .queryParam("query", search)
+                            .queryParam("include_adult", "false")
+                            .queryParam("page", page)
+                            .queryParam("sort_by", orderByDate != null ? orderByDate : (orderByRate != null ? orderByRate : ""))
+                            .build())
+                    .header("Authorization", "Bearer " + apiToken)
+                    .retrieve()
+                    .bodyToMono(GetMovieDTO.class);
+        }
 
         GetMovieDTO getMovieDTO = response.block();
 
