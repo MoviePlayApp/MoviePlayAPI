@@ -12,5 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetMovieDTO {
-    private List<MovieDTO> movies;
+    private List<MovieDTO> results;
 }

@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MovieDTO {
     private int id;
-    private String imageUri;
+    private String backdrop_path;
+    private String title;
 }
