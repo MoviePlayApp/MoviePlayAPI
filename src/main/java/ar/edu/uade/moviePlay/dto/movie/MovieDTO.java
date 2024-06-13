@@ -17,5 +17,4 @@ public class MovieDTO {
     private String title;
     private double vote_average;
     private String release_date; // String para recibir de la API
-    private LocalDate releaseDate; // LocalDate para manejar internamente
 }
