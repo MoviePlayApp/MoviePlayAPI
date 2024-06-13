@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories("com.*")
 @ComponentScan(basePackages = { "com.*" })
-@EntityScan("my.package.base.*")
+@EntityScan("com.*")
 public class MoviePlayApplication {
 
 	public static void main(String[] args) {
