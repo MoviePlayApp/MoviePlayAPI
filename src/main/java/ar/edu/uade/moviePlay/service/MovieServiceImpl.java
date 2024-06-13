@@ -33,6 +33,7 @@ public class MovieServiceImpl implements MovieService {
         String currentDate = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 
         Mono<GetMovieDTO> response;
+        String sortBy = (orderByRate != null) ? orderByRate : (orderByDate != null) ? orderByDate : "";
 
         if (search.isEmpty()) {
             response = webClient.get()
@@ -41,8 +42,7 @@ public class MovieServiceImpl implements MovieService {
                             .queryParam("include_adult", "false")
                             .queryParam("release_date.lte", currentDate)
                             .queryParam("page", page)
-                            .queryParam("sort_by", orderByDate)
-                            .queryParam("sort_by", orderByRate)
+                            .queryParam("sort_by", sortBy)
                             .queryParam("with_genres", genre)
                             .build())
                     .header("Authorization", "Bearer " + apiToken)
@@ -55,7 +55,7 @@ public class MovieServiceImpl implements MovieService {
                             .queryParam("query", search)
                             .queryParam("include_adult", "false")
                             .queryParam("page", page)
-                            .queryParam("sort_by", orderByDate != null ? orderByDate : (orderByRate != null ? orderByRate : ""))
+                            .queryParam("sort_by", sortBy)
                             .build())
                     .header("Authorization", "Bearer " + apiToken)
                     .retrieve()
