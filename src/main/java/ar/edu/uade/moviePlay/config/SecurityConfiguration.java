@@ -10,7 +10,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -28,13 +27,9 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .csrf(csfr -> csfr
-                        .ignoringRequestMatchers(toH2Console())
-                        .disable())
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("session/auth").permitAll()
                         .requestMatchers("ping").permitAll()
-                        .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("session/auth/refreshToken").permitAll()
                         .requestMatchers("session/logout").authenticated()
                         .requestMatchers("users/**").permitAll()
