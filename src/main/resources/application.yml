@@ -2,16 +2,21 @@
 spring:
   jpa:
     open-in-view: false
+    hibernate:
+      ddl-auto: update # Use 'update' or 'create' depending on your needs
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   profiles:
     active: ${SCOPE} # Comma-separated list of active profiles. Can be overridden by a command line switch.
   web:
     resources:
       add-mappings: false
   datasource:
-    url: jdbc:postgresql://dpg-cpl6us7109ks73dn709g-a.oregon-postgres.render.com:5432/movieplay
-    username: admin
-    password: JpTVMbL4aBJPHv85uQj2BvBzHAlr2qwY
-    driverClassName: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USER}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 server:
   compression:
     enabled: true # Whether response compression is enabled.
