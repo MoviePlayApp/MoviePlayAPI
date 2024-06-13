@@ -1,28 +1,28 @@
 package ar.edu.uade.moviePlay.config;
 
 
-import ar.edu.uade.moviePlay.entity.User;
 import ar.edu.uade.moviePlay.exception.InvalidTokenException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class ApplicationConfig {
-
+    @Autowired
     private final IUserRepository repository;
 
     public ApplicationConfig(IUserRepository repository) {
         this.repository = repository;
     }
+
 
     /**
      * Provides an AuthenticationManager bean using the provided AuthenticationConfiguration.
