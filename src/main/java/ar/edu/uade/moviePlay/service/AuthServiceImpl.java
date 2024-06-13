@@ -107,7 +107,7 @@ public class AuthServiceImpl implements IAuthService{
                                 .map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 600000))
+                .expiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(Keys.hmacShaKeyFor(SECRET_JWT_KEY.getBytes()))
                 .compact();
     }
