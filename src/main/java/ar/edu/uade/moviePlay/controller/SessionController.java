@@ -34,7 +34,7 @@ public class SessionController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<LogoutResponseDTO> login(HttpServletRequest request,@RequestBody LogoutRequestDTO logoutRequest) throws GeneralSecurityException, IOException {
+    public ResponseEntity<LogoutResponseDTO> logout(HttpServletRequest request,@RequestBody LogoutRequestDTO logoutRequest) throws GeneralSecurityException, IOException {
         return new ResponseEntity<>(authService.logout(request.getHeader("Authorization"), logoutRequest), HttpStatus.OK);
     }
 
