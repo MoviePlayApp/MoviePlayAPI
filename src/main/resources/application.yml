@@ -5,11 +5,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     properties:
-      hibernate.jdbc.batch_size: 20
-      hibernate.cache.use_query_cache: false
-      hibernate.cache.use_second_level_cache: false
-      hibernate.cache.use_structured_entries: false
-      hibernate.cache.use_minimal_puts: false
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
     #SPRING_DATASOURCE_URL environment variable will be something like -> jdbc:sqlserver://MySqlServer\\MyInstance:1433;DatabaseName=MyDbName;
     url: ${SPRING_DATASOURCE_URL}
