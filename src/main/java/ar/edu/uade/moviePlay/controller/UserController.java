@@ -26,12 +26,12 @@ public class UserController {
         return new ResponseEntity<>(userService.getMe(request.getHeader("Authorization")), HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteMe")
+    @DeleteMapping("/me")
     public ResponseEntity<DeleteMeDTO> deleteMe(HttpServletRequest request){
         return new ResponseEntity<>(userService.deleteMe(request.getHeader("Authorization")), HttpStatus.OK);
     }
 
-    @PutMapping("/putMe")
+    @PutMapping("/me")
     public ResponseEntity<MeDTO> putMe(HttpServletRequest request, @RequestBody PutMeDTO putMeDTO){
         return new ResponseEntity<>(userService.putMe(request.getHeader("Authorization"), putMeDTO), HttpStatus.OK);
     }
