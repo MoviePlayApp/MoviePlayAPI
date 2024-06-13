@@ -3,6 +3,7 @@ package ar.edu.uade.moviePlay.config;
 
 import ar.edu.uade.moviePlay.exception.InvalidTokenException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@EnableAutoConfiguration
 public class ApplicationConfig {
     private final IUserRepository repository;
 
