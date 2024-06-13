@@ -21,12 +21,6 @@ spring:
   web:
     resources:
       add-mappings: false
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-      path: /h2
 server:
   compression:
     enabled: true # Whether response compression is enabled.
