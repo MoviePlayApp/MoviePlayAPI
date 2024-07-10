@@ -37,7 +37,6 @@ public class SecurityConfiguration {
                         .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("session/auth/refreshToken").permitAll()
                         .requestMatchers("session/logout").authenticated()
-                        .requestMatchers("users/**").permitAll()
                         .requestMatchers("movies/**").permitAll()
                         .anyRequest().authenticated()
                 )
