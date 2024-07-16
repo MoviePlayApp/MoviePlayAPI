@@ -1,6 +1,7 @@
-package ar.edu.uade.moviePlay.service;
+package ar.edu.uade.moviePlay.service.Impl;
 
 import ar.edu.uade.moviePlay.dto.movie.MovieDTO;
+import ar.edu.uade.moviePlay.service.MovieService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

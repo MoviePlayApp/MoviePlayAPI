@@ -1,9 +1,10 @@
-package ar.edu.uade.moviePlay.service;
+package ar.edu.uade.moviePlay.service.Impl;
 
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
+import ar.edu.uade.moviePlay.service.IRefreshTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import ar.edu.uade.moviePlay.repository.IRefreshTokenRepository;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
 
 @Service
-public class RefreshTokenService implements IRefreshTokenService{
+public class RefreshTokenServiceImpl implements IRefreshTokenService {
 
     @Autowired
     IRefreshTokenRepository refreshTokenRepository;

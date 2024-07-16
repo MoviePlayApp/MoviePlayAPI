@@ -1,4 +1,4 @@
-package ar.edu.uade.moviePlay.service;
+package ar.edu.uade.moviePlay.service.Impl;
 
 import ar.edu.uade.moviePlay.dto.login.GoogleValidationResponseDTO;
 import ar.edu.uade.moviePlay.dto.login.LoginRequestDTO;
@@ -12,6 +12,7 @@ import ar.edu.uade.moviePlay.entity.User;
 import ar.edu.uade.moviePlay.exception.InvalidTokenException;
 import ar.edu.uade.moviePlay.exception.NotFoundException;
 import ar.edu.uade.moviePlay.repository.IUserRepository;
+import ar.edu.uade.moviePlay.service.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,19 +31,19 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 @Service
-public class AuthServiceImpl implements IAuthService{
-    private final InMemoryTokenBlacklist inMemoryTokenBlacklist;
+public class AuthServiceImpl implements IAuthService {
+    private final InMemoryTokenBlacklistImpl inMemoryTokenBlacklistImpl;
     IUserRepository userRepository;
     GoogleAuthService googleAuthService;
     IRefreshTokenService refreshTokenService;
     @Value("${secret.jwt.key}")
     private String SECRET_JWT_KEY;
 
-    public AuthServiceImpl(IUserRepository userRepository , GoogleAuthService googleAuthService, RefreshTokenService refreshTokenService, InMemoryTokenBlacklist inMemoryTokenBlacklist) {
+    public AuthServiceImpl(IUserRepository userRepository , GoogleAuthService googleAuthService, RefreshTokenServiceImpl refreshTokenServiceImpl, InMemoryTokenBlacklistImpl inMemoryTokenBlacklistImpl) {
         this.userRepository = userRepository;
         this.googleAuthService = googleAuthService;
-        this.refreshTokenService = refreshTokenService;
-        this.inMemoryTokenBlacklist = inMemoryTokenBlacklist;
+        this.refreshTokenService = refreshTokenServiceImpl;
+        this.inMemoryTokenBlacklistImpl = inMemoryTokenBlacklistImpl;
     }
 
     @Override
@@ -64,7 +65,7 @@ public class AuthServiceImpl implements IAuthService{
         if (!StringUtils.hasText(token) || !token.startsWith("Bearer ")) {
             throw new InvalidTokenException("Invalid token");
         }
-        inMemoryTokenBlacklist.addToBlacklist(token.substring(7));
+        inMemoryTokenBlacklistImpl.addToBlacklist(token.substring(7));
         return new LogoutResponseDTO(logoutRequestDTO.getEmail(), "Logout successful");
     }
 

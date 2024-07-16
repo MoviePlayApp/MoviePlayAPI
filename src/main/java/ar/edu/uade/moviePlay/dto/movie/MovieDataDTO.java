@@ -15,14 +15,16 @@ import java.util.List;
 public class MovieDataDTO {
     private int id;
     private String title;
-    private String synopsis;
-    private String genre;
-    private Integer releaseYear;
-    private String duration;
-    private String imageUri;
+    private String tagline;
+    private String overview;
+    private List<String> genres;
+    private String backdrop_path;
+    private String poster_path;
+    private String release_date;
+    private int runtime;
     private String trailerUri;
     private String director;
-    private List<String> actors;
-    private Float rateAverage;
-    private boolean isLiked;
+    private List<String> mainActors;
+    private double vote_average;
+    private int vote_count;
 }

@@ -6,7 +6,7 @@ import ar.edu.uade.moviePlay.dto.logout.LogoutRequestDTO;
 import ar.edu.uade.moviePlay.dto.logout.LogoutResponseDTO;
 import ar.edu.uade.moviePlay.dto.token.RefreshTokenRequestDTO;
 import ar.edu.uade.moviePlay.dto.token.RefreshTokenResponseDTO;
-import ar.edu.uade.moviePlay.service.AuthServiceImpl;
+import ar.edu.uade.moviePlay.service.Impl.AuthServiceImpl;
 import ar.edu.uade.moviePlay.service.IAuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

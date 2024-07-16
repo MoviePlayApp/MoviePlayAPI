@@ -1,12 +1,13 @@
-package ar.edu.uade.moviePlay.service;
+package ar.edu.uade.moviePlay.service.Impl;
 
+import ar.edu.uade.moviePlay.service.TokenBlacklist;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class InMemoryTokenBlacklist implements TokenBlacklist {
+public class InMemoryTokenBlacklistImpl implements TokenBlacklist {
     private Set<String> blacklist = new HashSet<>();
 
     @Override
