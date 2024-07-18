@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: ar.edu.uade.moviePlay.MovieTests.TestApiMovies
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.416 s -- in ar.edu.uade.moviePlay.MovieTests.TestApiMovies
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.659 s <<< FAILURE! -- in ar.edu.uade.moviePlay.MovieTests.TestApiMovies
+ar.edu.uade.moviePlay.MovieTests.TestApiMovies.testGetDetailsMovies -- Time elapsed: 0.871 s <<< ERROR!
+ar.edu.uade.moviePlay.exception.InvalidTokenException: Invalid token
+	at ar.edu.uade.moviePlay.service.Impl.MovieDetailsServiceImpl.validateTokenFormat(MovieDetailsServiceImpl.java:148)
+	at ar.edu.uade.moviePlay.service.Impl.MovieDetailsServiceImpl.getUserFromToken(MovieDetailsServiceImpl.java:153)
+	at ar.edu.uade.moviePlay.service.Impl.MovieDetailsServiceImpl.getMovieDetails(MovieDetailsServiceImpl.java:63)
+	at ar.edu.uade.moviePlay.MovieTests.TestApiMovies.testGetDetailsMovies(TestApiMovies.java:34)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

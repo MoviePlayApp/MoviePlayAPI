@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -67,19 +68,25 @@ public class MovieServiceImpl implements MovieService {
 
         if (getMovieDTO != null && getMovieDTO.getResults() != null) {
             // Ordenar los resultados manualmente
-            if (orderByRate != null) {
-                if (orderByRate.equals("vote_average.desc")) {
-                    getMovieDTO.getResults().sort(Comparator.comparingDouble(MovieDTO::getVote_average));
-                } else if (orderByRate.equals("vote_average.asc")) {
-                    getMovieDTO.getResults().sort(Comparator.comparingDouble(MovieDTO::getVote_average).reversed());
-                }
-            } else if (orderByDate != null) {
+             if (orderByDate != null) {
                 if (orderByDate.equals("release_date.desc")) {
-                    getMovieDTO.getResults().sort(Comparator.comparing(MovieDTO::getRelease_date));
-                } else if (orderByDate.equals("release_date.asc")) {
                     getMovieDTO.getResults().sort(Comparator.comparing(MovieDTO::getRelease_date).reversed());
+                } else if (orderByDate.equals("release_date.asc")) {
+                    getMovieDTO.getResults().sort(Comparator.comparing(MovieDTO::getRelease_date));
+                }
+             }
+            else if (orderByRate != null) {
+                if (orderByRate.equals("vote_average.desc")) {
+                    getMovieDTO.getResults().sort(Comparator.comparingDouble(MovieDTO::getVote_average).reversed());
+                } else if (orderByRate.equals("vote_average.asc")) {
+                    getMovieDTO.getResults().sort(Comparator.comparingDouble(MovieDTO::getVote_average));
                 }
             }
+            if (genre != null) {
+                String[] genres = genre.split(",");
+                Arrays.stream(genres).forEach(genreFilter -> getMovieDTO.setResults(getMovieDTO.getResults().stream().filter(movieDTO -> movieDTO.getGenre_ids().contains(genreFilter)).toList()));
+            }
+        }
 
             getMovieDTO.setResults(
                     getMovieDTO.getResults().stream()
@@ -91,8 +98,6 @@ public class MovieServiceImpl implements MovieService {
                     movie.setBackdrop_path(imageBaseUrl + "original" + movie.getBackdrop_path());
                 }
             });
-        }
-
         return getMovieDTO;
     }
 }

@@ -1,6 +1,5 @@
 ar\edu\uade\moviePlay\dto\movie\MovieDTO.class
 ar\edu\uade\moviePlay\dto\user\MeDTO$MeDTOBuilder.class
-ar\edu\uade\moviePlay\service\AuthServiceImpl.class
 ar\edu\uade\moviePlay\controller\MovieController.class
 ar\edu\uade\moviePlay\dto\user\PutMeDTO.class
 ar\edu\uade\moviePlay\config\JwtAuthenticationFilter.class
@@ -38,11 +37,9 @@ ar\edu\uade\moviePlay\config\ApplicationConfig.class
 ar\edu\uade\moviePlay\dto\movie\GetMovieDTO.class
 ar\edu\uade\moviePlay\dto\login\LoginRequestDTO$LoginRequestDTOBuilder.class
 ar\edu\uade\moviePlay\dto\movie\MovieDataDTO$MovieDataDTOBuilder.class
-ar\edu\uade\moviePlay\service\RefreshTokenService.class
 ar\edu\uade\moviePlay\dto\logout\LogoutResponseDTO$LogoutResponseDTOBuilder.class
 ar\edu\uade\moviePlay\dto\user\PutMeDTO$PutMeDTOBuilder.class
 ar\edu\uade\moviePlay\dto\user\LikedMoviesDTO.class
-ar\edu\uade\moviePlay\dto\user\LikeMovieDTO.class
 ar\edu\uade\moviePlay\dto\token\RefreshTokenResponseDTO$RefreshTokenResponseDTOBuilder.class
 ar\edu\uade\moviePlay\service\GoogleAuthService.class
 ar\edu\uade\moviePlay\service\IAuthService.class
@@ -53,13 +50,10 @@ ar\edu\uade\moviePlay\dto\logout\LogoutRequestDTO$LogoutRequestDTOBuilder.class
 ar\edu\uade\moviePlay\entity\User.class
 ar\edu\uade\moviePlay\repository\IRefreshTokenRepository.class
 ar\edu\uade\moviePlay\dto\errorResponses\ErrorDTO.class
-ar\edu\uade\moviePlay\service\InMemoryTokenBlacklist.class
 ar\edu\uade\moviePlay\dto\movie\MovieRateValueRequestDTO$MovieRateValueRequestDTOBuilder.class
 ar\edu\uade\moviePlay\entity\RefreshToken$RefreshTokenBuilder.class
-ar\edu\uade\moviePlay\service\MovieServiceImpl.class
 ar\edu\uade\moviePlay\config\WebClientConfig.class
 ar\edu\uade\moviePlay\dto\errorResponses\ErrorDTO$ErrorDTOBuilder.class
-ar\edu\uade\moviePlay\dto\user\LikeMovieDTO$LikeMovieDTOBuilder.class
 ar\edu\uade\moviePlay\dto\logout\LogoutResponseDTO.class
 ar\edu\uade\moviePlay\dto\login\LoginResponseDTO.class
 ar\edu\uade\moviePlay\dto\login\LoginRequestDTO.class

@@ -1,18 +1,26 @@
 package ar.edu.uade.moviePlay.service.Impl;
 
+import ar.edu.uade.moviePlay.config.JwtService;
 import ar.edu.uade.moviePlay.dto.movie.MovieDataDTO;
+import ar.edu.uade.moviePlay.entity.User;
+import ar.edu.uade.moviePlay.exception.InvalidTokenException;
+import ar.edu.uade.moviePlay.repository.IMovieRepository;
+import ar.edu.uade.moviePlay.repository.IUserRepository;
 import ar.edu.uade.moviePlay.service.MovieDetailsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieDetailsServiceImpl implements MovieDetailsService {
@@ -25,11 +33,17 @@ public class MovieDetailsServiceImpl implements MovieDetailsService {
     @Value("${themoviedb.api.imageBaseUrl}")
     private String imageBaseUrl;
 
-    public MovieDetailsServiceImpl(WebClient.Builder webClientBuilder) {
+    private IUserRepository userRepository;
+    private JwtService jwtService;
+
+
+    public MovieDetailsServiceImpl(WebClient.Builder webClientBuilder, IUserRepository userRepository, JwtService jwtService, IMovieRepository movieRepository) {
         this.webClient = webClientBuilder.baseUrl("https://api.themoviedb.org/3").build();
+        this.userRepository = userRepository;
+        this.jwtService = jwtService;
     }
 
-    public MovieDataDTO getMovieDetails(String movieId) {
+    public MovieDataDTO getMovieDetails(String movieId, String token) {
         Mono<String> response = webClient.get()
                 .uri("/movie/{movie_id}", movieId)
                 .header("Authorization", "Bearer " + apiToken)
@@ -43,7 +57,9 @@ public class MovieDetailsServiceImpl implements MovieDetailsService {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode root = objectMapper.readTree(movieResponse);
-
+                Optional<User> user = getUserFromToken(token);
+                validateUser(user);
+                boolean isLikedByUser = user.get().getFavoriteMovies().stream().anyMatch(movie -> String.valueOf(movie.getTmdbId()).equals(movieId));
                 movieDataDTO = MovieDataDTO.builder()
                         .title(root.path("title").asText())
                         .tagline(root.path("tagline").asText())
@@ -54,6 +70,7 @@ public class MovieDetailsServiceImpl implements MovieDetailsService {
                         .runtime(root.path("runtime").asInt())
                         .vote_average(root.path("vote_average").asDouble())
                         .vote_count(root.path("vote_count").asInt())
+                        .isLiked(isLikedByUser)
                         .build();
 
                 List<String> genres = new ArrayList<>();
@@ -120,8 +137,24 @@ public class MovieDetailsServiceImpl implements MovieDetailsService {
                 e.printStackTrace();
             }
         }
-
         return movieDataDTO;
     }
 
+    private void validateTokenFormat(String token){
+        if (!StringUtils.hasText(token) || !token.startsWith("Bearer ")) {
+            throw new InvalidTokenException("Invalid token");
+        }
+    }
+
+    private Optional<User> getUserFromToken(String token){
+        validateTokenFormat(token);
+        String email = jwtService.getClaim(token.substring(7), Claims::getSubject);
+        return userRepository.findByEmail(email);
+    }
+
+    private void validateUser(Optional<User> user){
+        if(user.isEmpty()){
+            throw new InvalidTokenException("Invalid token");
+        }
+    }
 }

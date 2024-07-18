@@ -27,4 +27,5 @@ public class MovieDataDTO {
     private List<String> mainActors;
     private double vote_average;
     private int vote_count;
+    private boolean isLiked;
 }

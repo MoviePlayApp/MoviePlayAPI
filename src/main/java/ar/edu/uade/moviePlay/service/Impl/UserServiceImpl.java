@@ -76,7 +76,8 @@ public class UserServiceImpl implements IUserService {
                                 movie.getBackdropPath(),
                                 movie.getTitle(),
                                 movie.getRateAverage(),
-                                String.valueOf(movie.getReleaseYear())))
+                                String.valueOf(movie.getReleaseYear()),
+                                List.of()))
                 .collect(Collectors.toList());
     }
 

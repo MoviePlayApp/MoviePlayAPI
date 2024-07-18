@@ -6,6 +6,11 @@ import ar.edu.uade.moviePlay.dto.movie.MovieRateValueResponseDTO;
 import ar.edu.uade.moviePlay.service.Impl.MovieDetailsServiceImpl;
 import ar.edu.uade.moviePlay.service.Impl.MovieServiceImpl;
 
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ar.edu.uade.moviePlay.service.Impl.RatingServiceImpl;
 import ar.edu.uade.moviePlay.service.RatingService;
 import org.springframework.http.HttpStatus;
@@ -42,16 +47,17 @@ public class MovieController {
 
     @GetMapping("/movies/{movieId}")
     public MovieDataDTO getMovieDetails(
+            HttpServletRequest request,
             @PathVariable String movieId) {
-        return movieDetailsService.getMovieDetails(movieId);
+        return movieDetailsService.getMovieDetails(movieId, request.getHeader("Authorization"));
     }
 
     @PutMapping("/movies/{movieId}/rating")
     @ResponseStatus(HttpStatus.OK)
     public MovieRateValueResponseDTO updateMovieRating(
-            @PathVariable String movieId, @RequestBody MovieRateValueRequestDTO request) {
+            @PathVariable String movieId, @RequestBody MovieRateValueRequestDTO request, HttpServletRequest requestHttp) {
         String updateStatus = ratingService.updateMovieRating(movieId, request.getRateValue());
-        MovieDataDTO updatedMovieDetails = movieDetailsService.getMovieDetails(movieId);
+        MovieDataDTO updatedMovieDetails = movieDetailsService.getMovieDetails(movieId, requestHttp.getHeader("Authorization"));
         return MovieRateValueResponseDTO.builder()
                 .movieId(Integer.parseInt(movieId))
                 .movieRate(updatedMovieDetails.getVote_average())

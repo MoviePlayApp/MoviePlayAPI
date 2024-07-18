@@ -29,8 +29,7 @@ public class RatingServiceImpl implements RatingService {
         try {
             logger.info("Updating movie rating for movieId: {}", movieId);
             logger.info("New rating value: {}", rating);
-
-            String jsonBody = String.format("{\"value\": %.1f}", rating);
+            String jsonBody = String.format("{\"value\":"+rating +"}");
             logger.info("Request body: {}", jsonBody);
 
             Mono<String> response = webClient.post()

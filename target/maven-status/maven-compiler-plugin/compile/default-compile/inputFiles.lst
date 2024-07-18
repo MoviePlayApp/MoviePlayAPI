@@ -1,47 +1,58 @@
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\RefreshToken.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\LoginResponseDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\MeDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\MovieRate.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\AuthServiceImpl.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\MovieService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\ControllerExceptionHandler.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\util\ScopeUtils.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\logout\LogoutResponseDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\GoogleAuthService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\ApiError.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\NotFoundException.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\JwtService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieRateValueRequestDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\repository\IRefreshTokenRepository.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\MovieController.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\LikedMoviesDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\Genre.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\PingController.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieRateValueResponseDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\PutMeDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\Movie.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\repository\IUserRepository.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\User.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\errorResponses\ErrorDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieDataDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\LoginRequestDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\MoviePlayApplication.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\SessionController.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\token\RefreshTokenRequestDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\RefreshTokenService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\TokenBlacklist.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\InMemoryTokenBlacklist.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\IRefreshTokenService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\MovieServiceImpl.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\ApplicationConfig.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\SecurityConfiguration.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\GetMovieDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\token\RefreshTokenResponseDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\IAuthService.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\GoogleValidationResponseDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\JwtAuthenticationFilter.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\logout\LogoutRequestDTO.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\WebClientConfig.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\InvalidTokenException.java
-C:\Users\solmu\Downloads\Desarrollo de Aplicaciones I\App\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\LikeMovieDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieRateValueRequestDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\logout\LogoutResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\WebClientConfig.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\DeleteMeDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\LikeMovieRequestDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\GoogleValidationResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\UserController.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\Movie.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\RefreshToken.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\SessionController.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\token\RefreshTokenResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieRateValueResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\MovieService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\ControllerExceptionHandler.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\MeDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\AuthServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\UserServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\InMemoryTokenBlacklistImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\InvalidTokenException.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\LikeMovieResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\repository\IRefreshTokenRepository.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\JwtService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\logout\LogoutRequestDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\Genre.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\RatingServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\WebConfig.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\MovieController.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\RefreshTokenServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\LoginResponseDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\MoviePlayApplication.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\TokenBlacklist.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\IRefreshTokenService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\MovieDetailsService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\MovieDetailsServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\controller\PingController.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\ApiError.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\User.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\login\LoginRequestDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\JwtAuthenticationFilter.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\ApplicationConfig.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\GoogleAuthService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\entity\MovieRate.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\RatingService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\repository\IMovieRepository.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\LikedMoviesDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\GetMovieDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\token\RefreshTokenRequestDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\IAuthService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\repository\IUserRepository.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\util\ScopeUtils.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\Impl\MovieServiceImpl.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\errorResponses\ErrorDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\service\IUserService.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\config\SecurityConfiguration.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\user\PutMeDTO.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\exception\NotFoundException.java
+D:\Documentos\GitHub\MoviePlayAPI\src\main\java\ar\edu\uade\moviePlay\dto\movie\MovieDataDTO.java
