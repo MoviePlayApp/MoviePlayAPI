@@ -82,7 +82,7 @@ public class MovieServiceImpl implements MovieService {
                     getMovieDTO.getResults().sort(Comparator.comparingDouble(MovieDTO::getVote_average));
                 }
             }
-            if (genre != null) {
+            if (genre != null && !genre.isEmpty()) {
                 String[] genres = genre.split(",");
                 Arrays.stream(genres).forEach(genreFilter -> getMovieDTO.setResults(getMovieDTO.getResults().stream().filter(movieDTO -> movieDTO.getGenre_ids().contains(genreFilter)).toList()));
             }
