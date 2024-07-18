@@ -96,6 +96,26 @@ public class MovieDetailsServiceImpl implements MovieDetailsService {
                     movieDataDTO.setMainActors(mainActors);
                 }
 
+                // Obtener el tráiler
+                Mono<String> videoResponse = webClient.get()
+                        .uri("/movie/{movie_id}/videos", movieId)
+                        .header("Authorization", "Bearer " + apiToken)
+                        .retrieve()
+                        .bodyToMono(String.class);
+
+                String videos = videoResponse.block();
+                if (videos != null) {
+                    JsonNode videosRoot = objectMapper.readTree(videos);
+                    JsonNode results = videosRoot.path("results");
+                    for (JsonNode videoNode : results) {
+                        if ("Trailer".equalsIgnoreCase(videoNode.path("type").asText()) &&
+                                "YouTube".equalsIgnoreCase(videoNode.path("site").asText())) {
+                            movieDataDTO.setTrailerUri(videoNode.path("key").asText());
+                            break;
+                        }
+                    }
+                }
+
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
