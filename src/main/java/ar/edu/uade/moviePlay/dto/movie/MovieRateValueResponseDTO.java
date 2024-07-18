@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MovieRateValueResponseDTO {
     private int movieId;
-    private int movieRate;
+    private double movieRate;
+    private String statusMessage;
 }
