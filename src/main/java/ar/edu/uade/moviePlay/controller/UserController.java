@@ -1,9 +1,7 @@
 package ar.edu.uade.moviePlay.controller;
 
 import ar.edu.uade.moviePlay.dto.movie.MovieDTO;
-import ar.edu.uade.moviePlay.dto.user.DeleteMeDTO;
-import ar.edu.uade.moviePlay.dto.user.MeDTO;
-import ar.edu.uade.moviePlay.dto.user.PutMeDTO;
+import ar.edu.uade.moviePlay.dto.user.*;
 import ar.edu.uade.moviePlay.service.IUserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -39,5 +37,10 @@ public class UserController {
     @GetMapping("/me/likedMovies")
     public ResponseEntity<List<MovieDTO>> getLikedMovies(HttpServletRequest request){
         return new ResponseEntity<>(userService.getLikedMovies(request.getHeader("Authorization")), HttpStatus.OK);
+    }
+
+    @PostMapping("/me/likeMovie")
+    public ResponseEntity<LikeMovieResponseDTO> likeMovie(HttpServletRequest request, @RequestBody LikeMovieRequestDTO likeMovieRequestDTO){
+        return new ResponseEntity<>(userService.likeMovie(request.getHeader("Authorization"), likeMovieRequestDTO), HttpStatus.OK);
     }
 }

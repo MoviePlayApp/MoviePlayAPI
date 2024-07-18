@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -58,4 +60,23 @@ public class Movie {
 
     @ManyToMany(mappedBy = "favoriteMovies", fetch = FetchType.EAGER)
     private List<User> users;
+
+    @Column(name = "backdrop_path", nullable = false)
+    private String backdropPath;
+
+    @Column(name = "rate_average")
+    private double rateAverage;
+
+    @Column(name="tmdb_id")
+    private int tmdbId;
+
+    public static Movie NewMovieDescription(int id, String backdrop_path, String title, double vote_average, String release_date){
+        Movie movie = new Movie();
+        movie.setTmdbId(id);
+        movie.setBackdropPath(backdrop_path);
+        movie.setTitle(title);
+        movie.setRateAverage(vote_average);
+        movie.setReleaseYear(Integer.parseInt(release_date));
+        return movie;
+    }
 }

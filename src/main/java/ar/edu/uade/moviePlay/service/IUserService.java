@@ -1,9 +1,7 @@
 package ar.edu.uade.moviePlay.service;
 
 import ar.edu.uade.moviePlay.dto.movie.MovieDTO;
-import ar.edu.uade.moviePlay.dto.user.DeleteMeDTO;
-import ar.edu.uade.moviePlay.dto.user.MeDTO;
-import ar.edu.uade.moviePlay.dto.user.PutMeDTO;
+import ar.edu.uade.moviePlay.dto.user.*;
 
 import java.util.List;
 
@@ -12,4 +10,5 @@ public interface IUserService {
     DeleteMeDTO deleteMe(String token);
     MeDTO putMe(String token, PutMeDTO meDTO);
     List<MovieDTO> getLikedMovies(String token);
+    LikeMovieResponseDTO likeMovie(String token, LikeMovieRequestDTO likeMovieRequestDTO);
 }

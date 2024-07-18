@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByEmail(String email);
-    @Transactional
-    @Modifying
-    @Query(value = "DELETE FROM users WHERE users.id = :id", nativeQuery = true)
-    void deleteById(@Param("id") Integer id);
+    //@Transactional
+    //@Modifying
+    //@Query(value = "DELETE FROM users WHERE users.id = :id", nativeQuery = true)
+    //void deleteById(@Param("id") Integer id);
 }

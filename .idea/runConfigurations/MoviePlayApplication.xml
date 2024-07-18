@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MoviePlayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <envs>
+      <env name="SCOPE" value="dev" />
+      <env name="SPRING_DATASOURCE_PASSWORD" value="V5ScnhHuoKdBooxXeUkxi0hSzLzTDJSw" />
+      <env name="SPRING_DATASOURCE_URL" value="jdbc:postgresql://dpg-cq9g6vjv2p9s73cj0oag-a.oregon-postgres.render.com/movieplay_lcsk" />
+      <env name="SPRING_DATASOURCE_USERNAME" value="admin" />
+    </envs>
+    <module name="moviePlay" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ar.edu.uade.moviePlay.MoviePlayApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
